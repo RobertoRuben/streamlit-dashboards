@@ -1,0 +1,24 @@
+version: "3.8"
+
+services:
+  app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: conteos_dashboard
+    env_file:
+      - .env
+    environment:
+      STREAMLIT_SERVER_ENABLECORS: "false"
+      STREAMLIT_SERVER_HEADLESS: "true"
+    ports:
+      - "8501:8501"
+    volumes:
+      - ./:/app:cached
+    restart: unless-stopped
+    healthcheck:
+      test: ["CMD-SHELL", "curl -f http://localhost:8501/ || exit 1"]
+      interval: 30s
+      timeout: 10s
+      retries: 5
+      start_period: 10s
