@@ -1,0 +1,17 @@
+[client]
+showErrorDetails = true
+
+[server]
+headless = true
+port = 8501
+runOnSave = true
+
+[theme]
+primaryColor = "#a91f24"
+backgroundColor = "#ffffff"
+secondaryBackgroundColor = "#f0f2f6"
+textColor = "#31333d"
+font = "sans serif"
+
+[logger]
+level = "info"
